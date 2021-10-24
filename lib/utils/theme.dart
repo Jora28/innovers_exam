@@ -4,14 +4,11 @@ import 'package:innovers_exam/utils/text_styles.dart';
 
 import 'colors.dart';
 
-const _smallTextScaleFactor = 0.80;
-
 /// Namespace for the Innovers Exam [ThemeData].
 class DefaultTheme {
   /// Standard `ThemeData` for Innovers Exam UI.
   static ThemeData get standard {
     return ThemeData(
-    
       // highlightColor: AppColors.orange,
       // colorScheme: ColorScheme.fromSwatch(accentColor: AppColors.blueDeep),
       // appBarTheme: _appBarTheme,
@@ -26,8 +23,6 @@ class DefaultTheme {
       dividerTheme: _dividerTheme,
     );
   }
-
-
 
   static TextTheme get _textTheme {
     return TextTheme(
@@ -47,8 +42,6 @@ class DefaultTheme {
     );
   }
 
-
-
   // static AppBarTheme get _appBarTheme {
   //   return const AppBarTheme(color: AppColors.blueDeep);
   // }
@@ -62,7 +55,7 @@ class DefaultTheme {
         ),
         padding: const EdgeInsets.symmetric(vertical: 16),
         primary: AppColors.blue,
-       // minimumSize: const Size(208, 54),
+        // minimumSize: const Size(208, 54),
       ),
     );
   }

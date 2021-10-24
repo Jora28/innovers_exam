@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:innovers_exam/main.dart';
 import 'package:innovers_exam/utils/colors.dart';
-import 'package:innovers_exam/utils/data.dart';
 import 'package:innovers_exam/utils/styles.dart';
 import 'package:innovers_exam/widgets/clicable_widgets.dart';
 
-class ContactList extends StatelessWidget {
+class LocationList extends StatelessWidget {
   final double width;
-  final Function(Contacts model) onTap;
+  final List<String> listLocations;
+  final Function(String name) onTap;
 
-  const ContactList({required this.width, required this.onTap});
+  const LocationList(
+      {required this.width, required this.onTap, required this.listLocations});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ContactList extends StatelessWidget {
             padding: EdgeInsets.zero,
             physics: ClampingScrollPhysics(),
             shrinkWrap: true,
-            itemCount: ExamData.listContacts.length,
+            itemCount: listLocations.length,
             itemBuilder: (context, index) {
               return Container(
                 decoration: BoxDecoration(
@@ -35,26 +35,19 @@ class ContactList extends StatelessWidget {
                         bottom: BorderSide(color: AppColors.grey, width: 1))),
                 child: Clickable(
                   onPressed: () {
-                    onTap(ExamData.listContacts[index]);
+                    onTap(listLocations[index]);
                   },
                   borderRadius: null,
                   child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.transparent,
-                      backgroundImage:
-                          AssetImage(ExamData.listContacts[index].avatar),
-                    ),
                     title: Text(
-                      ExamData.listContacts[index].phone,
+                      listLocations[index],
+                      softWrap: false,
+                      overflow: TextOverflow.ellipsis,
                       style: Theme.of(context)
                           .textTheme
                           .headline2
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    subtitle: Text(ExamData.listContacts[index].name,
-                        softWrap: false,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headline2),
                     trailing: Icon(Icons.north_west),
                   ),
                 ),

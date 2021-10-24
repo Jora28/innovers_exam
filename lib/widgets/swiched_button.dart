@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:innovers_exam/utils/colors.dart';
 import 'package:innovers_exam/utils/styles.dart';
-import 'package:innovers_exam/widgets/button.dart';
 import 'package:innovers_exam/widgets/clicable_widgets.dart';
 import 'package:innovers_exam/widgets/input.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -119,9 +118,18 @@ class _SwichedButtonState extends State<SwichedButton> {
                         : EdgeInsets.only(right: 2, left: 22),
                     height: 50,
                     width: MediaQuery.of(context).size.width / 2,
-                    child: CustumButton(
-                      onPressed: () {},
-                      buttonText: isDueTo ? widget.buttonText1 : widget.buttonText2,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: AppColors.blue,
+                          borderRadius: Corners.smBorder),
+                      alignment: Alignment.center,
+                      child: Text(
+                        isDueTo ? widget.buttonText1 : widget.buttonText2,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            ?.copyWith(color: AppColors.white),
+                      ),
                     ),
                   ),
                 )
@@ -140,36 +148,36 @@ class _SwichedButtonState extends State<SwichedButton> {
                       child: AbsorbPointer(
                         absorbing: isDueTo,
                         child: CustumInput(
-                          textInputType: TextInputType.number,
-                          textInputFormatter:
-                              MaskTextInputFormatter(mask: "##/##/####"),
-                          controller: widget.controllerRange,
-                          hintText:
-                              isDueTo ? 'Start date/time:' : 'Start date:',
-                          onSaved: (String? newValue) {},
-                          validator: (String? value) {
-                            if (value!.isEmpty) {
-                              return null;
-                            }
-                            final components = value.split("/");
-                            if (components.length == 3) {
-                              final day = int.tryParse(components[0]);
-                              final month = int.tryParse(components[1]);
-                              final year = int.tryParse(components[2]);
-                              if (day != null &&
-                                  month != null &&
-                                  year != null) {
-                                final date = DateTime(year, month, day);
-                                if (date.year == year &&
-                                    date.month == month &&
-                                    date.day == day) {
-                                  return null;
-                                }
-                              }
-                            }
-                            return "wrong date";
-                          },
-                        ),
+                            textInputType: TextInputType.number,
+                            textInputFormatter:
+                                MaskTextInputFormatter(mask: "##/##/####"),
+                            controller: widget.controllerRange,
+                            hintText:
+                                isDueTo ? 'Start date/time:' : 'Start date:',
+                            onSaved: (String? newValue) {},
+                            validator: (String? value) {
+                              //   if (value!.isEmpty) {
+                              //     return null;
+                              //   }
+                              //   final components = value.split("/");
+                              //   if (components.length == 3) {
+                              //     final day = int.tryParse(components[0]);
+                              //     final month = int.tryParse(components[1]);
+                              //     final year = int.tryParse(components[2]);
+                              //     if (day != null &&
+                              //         month != null &&
+                              //         year != null) {
+                              //       final date = DateTime(year, month, day);
+                              //       if (date.year == year &&
+                              //           date.month == month &&
+                              //           date.day == day) {
+                              //         return null;
+                              //       }
+                              //     }
+                              //   }
+                              //   return "wrong date";
+                              // },
+                            }),
                       ),
                     ),
                     SizedBox(

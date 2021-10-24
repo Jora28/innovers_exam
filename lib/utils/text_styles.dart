@@ -58,7 +58,8 @@ class AppTextStyle {
   /// Subtitle 2 Text Style
   static TextStyle get subtitle2 {
     return _baseTextStyle.copyWith(
-      fontSize: 24,
+      fontSize: 14,
+      fontWeight: FontWeight.bold
     );
   }
 
@@ -79,7 +80,7 @@ class AppTextStyle {
   /// Caption Text Style
   static TextStyle get caption {
     return _baseTextStyle.copyWith(
-      fontSize: 60,
+      fontSize: 10,
     );
   }
 
