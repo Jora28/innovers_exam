@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:innovers_exam/models/item_model.dart';
 import 'package:innovers_exam/pages/bloc/homepage_bloc.dart';
+import 'package:innovers_exam/utils/behavior.dart';
 import 'package:innovers_exam/utils/colors.dart';
 import 'package:innovers_exam/utils/data.dart';
 import 'package:innovers_exam/utils/styles.dart';
@@ -153,6 +154,7 @@ class _HomePageState extends State<HomePage> {
     super.didChangeDependencies();
   }
 
+ 
   void hideOverLay() {
     overlayEntry?.remove();
     overlayEntry = null;
@@ -213,27 +215,30 @@ class _HomePageState extends State<HomePage> {
     return Container(
       margin: EdgeInsets.fromLTRB(24, 50, 24, 12),
       width: MediaQuery.of(context).size.width,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Form(
-              key: _formTitleState,
-              child: _titleForm(),
-            ),
-            SwichedButton(
-              title: "Time period",
-              controllerDueTo: _dueToController,
-              controllerRange: _startDateController,
-              textFildVisibility: true,
-              buttonText1: 'Due to',
-              buttonText2: 'Range',
-            ),
-            Form(
-              key: _formPaCkageItemsState,
-              child: _packageItemsForm(),
-            ),
-            _bottomForm()
-          ],
+      child: ScrollConfiguration(
+        behavior: MyBehavior(),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Form(
+                key: _formTitleState,
+                child: _titleForm(),
+              ),
+              SwichedButton(
+                title: "Time period",
+                controllerDueTo: _dueToController,
+                controllerRange: _startDateController,
+                textFildVisibility: true,
+                buttonText1: 'Due to',
+                buttonText2: 'Range',
+              ),
+              Form(
+                key: _formPaCkageItemsState,
+                child: _packageItemsForm(),
+              ),
+              _bottomForm()
+            ],
+          ),
         ),
       ),
     );
