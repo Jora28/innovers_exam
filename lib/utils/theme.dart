@@ -16,7 +16,7 @@ class DefaultTheme {
       // outlinedButtonTheme: _outlinedButtonTheme,
       textTheme: _textTheme,
       dialogBackgroundColor: AppColors.white,
-      dialogTheme: _dialogTheme,
+     // dialogTheme: _dialogTheme,
       // tooltipTheme: _tooltipTheme,
       bottomSheetTheme: _bottomSheetTheme,
       // tabBarTheme: _tabBarTheme,
@@ -85,13 +85,13 @@ class DefaultTheme {
   //   );
   // }
 
-  static DialogTheme get _dialogTheme {
-    return DialogTheme(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-    );
-  }
+  // static DialogTheme get _dialogTheme {
+  //   return DialogTheme(
+  //     shape: RoundedRectangleBorder(
+  //       borderRadius: BorderRadius.circular(12),
+  //     ),
+  //   );
+  // }
 
   static BottomSheetThemeData get _bottomSheetTheme {
     return const BottomSheetThemeData(

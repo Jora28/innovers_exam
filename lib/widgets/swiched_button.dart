@@ -40,9 +40,7 @@ class _SwichedButtonState extends State<SwichedButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          border:
-              Border(bottom: BorderSide(color: AppColors.grey, width: 1.5))),
+      decoration: BoxDecoration(border: Border(bottom: Borders.border)),
       child: Column(
         children: [
           Container(
@@ -155,29 +153,7 @@ class _SwichedButtonState extends State<SwichedButton> {
                             hintText:
                                 isDueTo ? 'Start date/time:' : 'Start date:',
                             onSaved: (String? newValue) {},
-                            validator: (String? value) {
-                              //   if (value!.isEmpty) {
-                              //     return null;
-                              //   }
-                              //   final components = value.split("/");
-                              //   if (components.length == 3) {
-                              //     final day = int.tryParse(components[0]);
-                              //     final month = int.tryParse(components[1]);
-                              //     final year = int.tryParse(components[2]);
-                              //     if (day != null &&
-                              //         month != null &&
-                              //         year != null) {
-                              //       final date = DateTime(year, month, day);
-                              //       if (date.year == year &&
-                              //           date.month == month &&
-                              //           date.day == day) {
-                              //         return null;
-                              //       }
-                              //     }
-                              //   }
-                              //   return "wrong date";
-                              // },
-                            }),
+                            validator: (String? value) {}),
                       ),
                     ),
                     SizedBox(

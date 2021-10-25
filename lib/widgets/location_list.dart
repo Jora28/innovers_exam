@@ -32,7 +32,7 @@ class LocationList extends StatelessWidget {
               return Container(
                 decoration: BoxDecoration(
                     border: Border(
-                        bottom: BorderSide(color: AppColors.grey, width: 1))),
+                        bottom: Borders.border)),
                 child: Clickable(
                   onPressed: () {
                     onTap(listLocations[index]);

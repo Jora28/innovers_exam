@@ -30,9 +30,8 @@ class ContactList extends StatelessWidget {
             itemCount: ExamData.listContacts.length,
             itemBuilder: (context, index) {
               return Container(
-                decoration: BoxDecoration(
-                    border: Border(
-                        bottom: BorderSide(color: AppColors.grey, width: 1))),
+                decoration:
+                    BoxDecoration(border: Border(bottom: Borders.border)),
                 child: Clickable(
                   onPressed: () {
                     onTap(ExamData.listContacts[index]);

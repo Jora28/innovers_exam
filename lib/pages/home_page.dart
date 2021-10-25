@@ -12,8 +12,6 @@ import 'package:innovers_exam/utils/styles.dart';
 import 'package:innovers_exam/widgets/button.dart';
 import 'package:innovers_exam/widgets/clicable_widgets.dart';
 import 'package:innovers_exam/widgets/contact_list.dart';
-import 'package:innovers_exam/widgets/custom_radio.dart';
-import 'package:innovers_exam/widgets/icons/picer_icons.dart';
 import 'package:innovers_exam/widgets/input.dart';
 import 'package:innovers_exam/widgets/location_list.dart';
 import 'package:innovers_exam/widgets/open_dialog_container.dart';
@@ -29,9 +27,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  GlobalKey receiverInputGlobalKey = GlobalKey();
-  // GlobalKey descriptionInputGlobalKey = GlobalKey();
+  late HomepageBloc homepageBloc;
 
+  GlobalKey receiverInputGlobalKey = GlobalKey();
   GlobalKey destinationGlobalKey = GlobalKey();
   GlobalKey fromGlobalKey = GlobalKey();
 
@@ -43,18 +41,15 @@ class _HomePageState extends State<HomePage> {
   final FocusNode focusNodeFrom = FocusNode();
   final FocusNode focusNodeDestination = FocusNode();
 
-  final _formTitleState = GlobalKey<FormState>();
+  final  _formTitleState = GlobalKey<FormState>();
   final _formPaCkageItemsState = GlobalKey<FormState>();
 
   TextEditingController _titleController = TextEditingController();
   TextEditingController _itemTitleController = TextEditingController();
-
   TextEditingController _itemDesController = TextEditingController();
-
   TextEditingController _fromController = TextEditingController();
   TextEditingController _destinationController = TextEditingController();
   TextEditingController _receiversNameController = TextEditingController();
-
   TextEditingController _startDateController = TextEditingController();
   TextEditingController _dueToController = TextEditingController();
   TextEditingController _weightController = TextEditingController();
@@ -62,15 +57,15 @@ class _HomePageState extends State<HomePage> {
   TextEditingController _amountController = TextEditingController();
 
   OverlayEntry? overlayEntry;
+
   int val = 0;
+
   String _selectTranstationType = 'Transtation Type';
   String _itemTitle = 'Item title';
 
   int currentLenghtTitle = 0;
   int currentLenghtItemTitle = 0;
   int currentLenghtItemDescription = 0;
-
-  late HomepageBloc homepageBloc;
 
   String? avatar;
 
@@ -154,7 +149,6 @@ class _HomePageState extends State<HomePage> {
     super.didChangeDependencies();
   }
 
- 
   void hideOverLay() {
     overlayEntry?.remove();
     overlayEntry = null;
@@ -252,9 +246,7 @@ class _HomePageState extends State<HomePage> {
         }
         return Container(
           margin: EdgeInsets.only(bottom: 24),
-          decoration: BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: AppColors.grey, width: 1.5))),
+          decoration: BoxDecoration(border: Border(bottom: Borders.border)),
           child: Column(
             children: [
               CustumInput(
@@ -532,8 +524,8 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.symmetric(vertical: 12),
                 decoration: BoxDecoration(
                     border: Border(
-                  top: BorderSide(color: AppColors.grey, width: 1.5),
-                  bottom: BorderSide(color: AppColors.grey, width: 1.5),
+                  top: Borders.border,
+                  bottom: Borders.border,
                 )),
                 child: CustumButton(
                   buttonText: 'New Item',

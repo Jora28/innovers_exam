@@ -12,7 +12,7 @@ class CustumInput extends StatelessWidget {
   final TextInputType? textInputType;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
-  MaskTextInputFormatter textInputFormatter;
+  final MaskTextInputFormatter textInputFormatter;
   final FormFieldSetter<String> onSaved;
   final ValueChanged<String>? onChanged;
   final FormFieldValidator<String> validator;
@@ -58,26 +58,26 @@ class CustumInput extends StatelessWidget {
         decoration: InputDecoration(
             errorBorder: OutlineInputBorder(
                 borderRadius: Corners.smBorder,
-                borderSide: BorderSide(color: Colors.red, width: 1)),
+                borderSide: Borders.errorBorder),
             errorStyle: Theme.of(context)
                 .textTheme
                 .bodyText1
-                ?.copyWith(color: Colors.redAccent),
+                ?.copyWith(color: Colors.red),
             focusColor: AppColors.grey,
             fillColor: AppColors.grey,
             filled: true,
             border: OutlineInputBorder(
                 borderRadius: Corners.smBorder,
-                borderSide: BorderSide(color: AppColors.greyDark, width: 1)),
+                borderSide: Borders.borderWith1),
             isDense: true,
             hintStyle: Theme.of(context).textTheme.bodyText1,
             hintText: hintText,
             focusedBorder: OutlineInputBorder(
                 borderRadius: Corners.smBorder,
-                borderSide: BorderSide(color: AppColors.greyDark, width: 1)),
+                borderSide: Borders.borderWith1),
             enabledBorder: OutlineInputBorder(
                 borderRadius: Corners.smBorder,
-                borderSide: BorderSide(color: AppColors.greyDark, width: 1)),
+                borderSide: Borders.borderWith1),
             prefixIcon: prefixIcon == null
                 ? null
                 : Column(
